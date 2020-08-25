@@ -18,6 +18,11 @@ The experiments contemplate variations inspired by some relevant deep learning n
 | 06 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
 | 07 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
 
+|a  |b  |
+|---|---|
+|>|1|
+|2||
+
 
 ## Installation
 ### Requirements
