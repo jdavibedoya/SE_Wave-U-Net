@@ -7,6 +7,16 @@ Adaptation of the [Wave-U-Net](https://github.com/f90/Wave-U-Net) [[1]](#1) arch
 
 ## Experiments 
 The experiments contemplate variations inspired by some relevant deep learning networks for speech enhancement (Spectral Losses [[3]](#3)[[4]](#4), Noise Input Vector, Attention Mechanism [[5]](#5), SEGAN+ Variations [[6]](#6)). 
+| ID | Variant             | Loss            | Command                                                        |
+|----|---------------------|-----------------|----------------------------------------------------------------|
+| 00 | Baseline Wave-U-Net | L1 + STFT + Mel | ``python Training.py with cfg.L1``                             |
+| 01 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 02 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 03 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 04 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 05 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 06 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 07 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
 
 
 ## Installation
