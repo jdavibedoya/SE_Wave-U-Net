@@ -10,8 +10,8 @@ The experiments contemplate variations inspired by some relevant deep learning n
 | ID | Variant             | Loss            | Command                                                        |
 |----|---------------------|-----------------|----------------------------------------------------------------|
 | 00 | Baseline Wave-U-Net | L1 + STFT + Mel | ``python Training.py with cfg.L1``                             |
-| 01 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
-| 02 | ^                   | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 01 | Attention Mechanism>| L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+| 02 | ^                  .| L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
 | 03 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
 | 04 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
 | 05 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
