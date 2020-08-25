@@ -18,18 +18,18 @@ To reproduce the experiments, it is necessary to download the [VCTK](http://data
 
 
 ## References 
-<a name="1"></a> [1] Stoller, D., Ewert, S. & Dixon, S. Wave-U-Net: A Multi-Scale Neural Network for End-to-End Audio Source Separation (2018).
+<a name="1"></a> [1] Stoller, D., Ewert, S. & Dixon, S. Wave-U-Net: [A Multi-Scale Neural Network for End-to-End Audio Source Separation](https://arxiv.org/abs/1806.03185) (2018).
 
-<a name="2"></a> [2] Macartney, C. & Weyde, T. Improved Speech Enhancement with the Wave-U-Net (2018).
+<a name="2"></a> [2] Macartney, C. & Weyde, T. [Improved Speech Enhancement with the Wave-U-Net](https://arxiv.org/abs/1811.11307) (2018).
 
 <a name="3"></a> [3] Ramires, A., Chandna, P., Favory, X., Gómez, E. & Serra, X. Neural Percussive Synthesis Parameterised by High-Level Timbral Features. In ICASSP (2020).
 
-<a name="4"></a> [4] Feng, B., Jin, Z., Su, J. & Finkelstein, A. Learning Bandwidth Expansion UsingPerceptually-Motivated Loss. In ICASSP (2019).
+<a name="4"></a> [4] Feng, B., Jin, Z., Su, J. & Finkelstein, A. [Learning Bandwidth Expansion UsingPerceptually-Motivated Loss](https://ieeexplore.ieee.org/abstract/document/9053128). In ICASSP (2019).
 
-<a name="5"></a> [5] Giri, R., Isik, U. & Krishnaswamy, A. Attention Wave-U-Net for Speech En-hancement. In WASPAA (2019).
+<a name="5"></a> [5] Giri, R., Isik, U. & Krishnaswamy, A. [Attention Wave-U-Net for Speech Enhancement](https://ieeexplore.ieee.org/abstract/document/8937186). In WASPAA (2019).
 
-<a name="6"></a> [6] Pascual, S., Serrà, J. & Bonafonte, A. Time-Domain Speech EnhancementUsing Generative Adversarial Networks. Speech Communication (2019).
+<a name="6"></a> [6] Pascual, S., Serrà, J. & Bonafonte, A. [Time-Domain Speech EnhancementUsing Generative Adversarial Networks](https://www.sciencedirect.com/science/article/abs/pii/S0167639319301359). Speech Communication (2019).
 
-<a name="7"></a> [7] Valentini-Botinhao, C. Noisy Speech Database for Training Speech Enhance- ment Algorithms and TTS Models (2016). University of Edinburgh. School of Informatics. Centre for Speech Technology Research (CSTR).
+<a name="7"></a> [7] Valentini-Botinhao, C. [Noisy Speech Database for Training Speech Enhancement Algorithms and TTS Models](https://www.research.ed.ac.uk/portal/en/publications/speech-enhancement-for-a-noiserobust-texttospeech-synthesis-system-using-deep-recurrent-neural-networks(08deb6fd-79c0-490f-ae46-f37034b6bfb4).html) (2016). University of Edinburgh. School of Informatics. Centre for Speech Technology Research (CSTR).
 
-<a name="8"></a> [8] Mysore, G. J. Can we Automatically Transform Speech Recorded on Common Consumer Devices in Real-World Environments into Professional Production Quality Speech? - A Dataset, Insights, and Challenges. IEEE Signal Processing Letters (2015).
+<a name="8"></a> [8] Mysore, G. J. [Can we Automatically Transform Speech Recorded on Common Consumer Devices in Real-World Environments into Professional Production Quality Speech?](https://ieeexplore.ieee.org/abstract/document/6981922) - A Dataset, Insights, and Challenges. IEEE Signal Processing Letters (2015).
