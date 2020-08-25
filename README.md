@@ -22,9 +22,9 @@ To reproduce the experiments, it is necessary to download the [VCTK](http://data
 
 <a name="2"></a> [2] Macartney, C. & Weyde, T. [Improved Speech Enhancement with the Wave-U-Net](https://arxiv.org/abs/1811.11307) (2018).
 
-<a name="3"></a> [3] Ramires, A., Chandna, P., Favory, X., Gómez, E. & Serra, X. Neural Percussive Synthesis Parameterised by High-Level Timbral Features. In ICASSP (2020).
+<a name="3"></a> [3] Ramires, A., Chandna, P., Favory, X., Gómez, E. & Serra, X. [Neural Percussive Synthesis Parameterised by High-Level Timbral Features](https://ieeexplore.ieee.org/abstract/document/9053128). In ICASSP (2020).
 
-<a name="4"></a> [4] Feng, B., Jin, Z., Su, J. & Finkelstein, A. [Learning Bandwidth Expansion UsingPerceptually-Motivated Loss](https://ieeexplore.ieee.org/abstract/document/9053128). In ICASSP (2019).
+<a name="4"></a> [4] Feng, B., Jin, Z., Su, J. & Finkelstein, A. [Learning Bandwidth Expansion UsingPerceptually-Motivated Loss](https://ieeexplore.ieee.org/abstract/document/8682367). In ICASSP (2019).
 
 <a name="5"></a> [5] Giri, R., Isik, U. & Krishnaswamy, A. [Attention Wave-U-Net for Speech Enhancement](https://ieeexplore.ieee.org/abstract/document/8937186). In WASPAA (2019).
 
