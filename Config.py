@@ -10,7 +10,7 @@ def cfg():
                     "preprocessed_data_path" : "data/audio/preprocessed",
                     "input" : "device8k",
                     "target" : "clean",
-                    "data_path" : "data", # Set this to where the preprocessed dataset should be saved
+                    "data_path" : "data/TFRecords", # Set this to where the preprocessed dataset should be saved
                     "estimates_path" : "estimates", # Set this path to where you want estimates produced by the trained model to be saved
                     "model_base_dir" : "checkpoints", # Base folder for model checkpoints
                     "log_dir" : "logs", # Base folder for logs files
