@@ -14,8 +14,10 @@ To reproduce the experiments, it is necessary to download the [VCTK](http://data
 ## Training and Testing
 To train the models, use the ``python Training.py`` command with the desired configuration (e.g. ``python Training.py with cfg.L1_STFT_Mel``). 
 
-
 Pre-trained weights of the explored model variants can be downloaded [here](www.embolia.com). Unzip them into the checkpoints subfolder of this repository.
+
+Below is an example of how to make a prediction on an audio file: 
+``python Predict.py with cfg.L1_STFT_Mel model_path="checkpoints/06/06-100000" input_path="/data/audio/raw/noisy_speech.wav" output_path="/estimates"``
 
 
 ## Requirements
