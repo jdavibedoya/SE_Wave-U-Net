@@ -127,7 +127,7 @@ def get_dataset(model_config, input_shape, output_shape, partition):
     '''
 
     # Check if pre-processed dataset is already available for this model config and partition
-    main_folder = model_config["data_path"] + "/VCTK_DAPS_DBE_" + model_config["input"] + "2" + model_config["target"]
+    main_folder = model_config["data_path"]
     # main_folder = "/content/sample_data/" + main_folder # Data stored in Colab
     
     # Check if pre-processed dataset is already available
