@@ -2,7 +2,7 @@ scipy==1.4.1
 pandas==1.0.5
 numpy==1.18.5
 essentia==2.1b6.dev234
-librosa==0.6.2
-pypesq==1.2.4
 sacred==0.7.3
 tensorflow-gpu==1.8.0
+librosa==0.6.2
+pypesq==1.2.4
