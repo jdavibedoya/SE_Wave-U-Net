@@ -158,6 +158,6 @@ def run(cfg):
     print("Supervised training finished! Saved model at " + sup_model_path + ". Performance: " + str(sup_loss))
     
     # Evaluate trained model
-    Evaluate.produce_estimates(model_config, "VCTK", str(experiment_id), sup_model_path) # VCTK
-    Evaluate.produce_estimates(model_config, "DAPS", str(experiment_id), sup_model_path) # DAPS
+    Evaluate.evaluate_dataset(model_config, "VCTK", str(experiment_id), sup_model_path) # VCTK
+    Evaluate.evaluate_dataset(model_config, "DAPS", str(experiment_id), sup_model_path) # DAPS
     
