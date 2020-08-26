@@ -5,11 +5,14 @@ Adaptation of the [Wave-U-Net](https://github.com/f90/Wave-U-Net) [[1]](#1) arch
 
 ## Listening Examples
 
+## Requirements
+The project is based on Python 3.6.8 and requires [libsndfile](http://mega-nerd.com/libsndfile/) and CUDA 9 to be installed. The required Python packages can be installed using ``pip install -r requirements.txt``
+
 ## Experiments 
 The experiments contemplate variations inspired by some relevant deep learning networks for speech enhancement (Spectral Losses [[3]](#3)[[4]](#4), Noise Input Vector, Attention Mechanism [[5]](#5), SEGAN+ Variations [[6]](#6)). 
 
 ## Datasets
-To reproduce the experiments, it is necessary to download the [VCTK](http://datashare.is.ed.ac.uk/handle/10283/1942) [[7]](#7) and [DAPS](https://archive.org/details/daps_dataset) [[8]](#8) datasets. Move them to the `data/audio/raw` subfolder of this repository.
+To reproduce the experiments it is necessary to download the [VCTK](http://datashare.is.ed.ac.uk/handle/10283/1942) [[7]](#7) and [DAPS](https://archive.org/details/daps_dataset) [[8]](#8) datasets, and move them to the `data/audio/raw` subfolder of this repository.
 
 ## Training and Testing
 To train the models, use the ``python Training.py`` command with the desired configuration (e.g. ``python Training.py with cfg.L1_STFT_Mel``). 
@@ -17,11 +20,8 @@ To train the models, use the ``python Training.py`` command with the desired con
 Pre-trained weights of the explored model variants can be downloaded [here](www.embolia.com). Unzip them into the `checkpoints` subfolder of this repository.
 
 Below is an example of how to make a prediction on an audio file: 
+
 ``python Predict.py with cfg.L1_STFT_Mel model_path="checkpoints/06/06-100000" input_path="/data/audio/raw/noisy_speech.wav" output_path="/estimates"``
-
-
-## Requirements
-The project is based on Python 3.6.8 and requires [libsndfile](http://mega-nerd.com/libsndfile/) and CUDA 9 to be installed. The required Python packages can be installed using ``pip install -r requirements.txt``
 
 ## References 
 <a name="1"></a> [1] Stoller, D., Ewert, S. & Dixon, S. Wave-U-Net: [A Multi-Scale Neural Network for End-to-End Audio Source Separation](https://arxiv.org/abs/1806.03185) (2018).
