@@ -49,12 +49,12 @@ def cfg():
 @config_ingredient.named_config
 def L1():
     print("Baseline")
-    experiment_id = 300
+    experiment_id = 0
 
 @config_ingredient.named_config
 def L1_STFT():
     print("L1 + STFT")
-    experiment_id = 301
+    experiment_id = 1
     model_config = {
         'stft_loss' : 1,
     }
@@ -62,7 +62,7 @@ def L1_STFT():
 @config_ingredient.named_config
 def L1_Mel():
     print("L1 + Mel")
-    experiment_id = 302
+    experiment_id = 2
     model_config = {
         'perceptual_loss' : 1,
     }
@@ -70,7 +70,7 @@ def L1_Mel():
 @config_ingredient.named_config
 def STFT():
     print("STFT")
-    experiment_id = 303
+    experiment_id = 3
     model_config = {
         'raw_audio_loss' : False,
         'stft_loss' : 1,
@@ -79,7 +79,7 @@ def STFT():
 @config_ingredient.named_config
 def Mel():
     print("Mel")
-    experiment_id = 304
+    experiment_id = 4
     model_config = {
         'raw_audio_loss' : False,
         'perceptual_loss' : 1,
@@ -88,7 +88,7 @@ def Mel():
 @config_ingredient.named_config
 def STFT_Mel():
     print("STFT + Mel")
-    experiment_id = 305
+    experiment_id = 5
     model_config = {
         'raw_audio_loss' : False,
         'stft_loss' : 1,
@@ -98,7 +98,7 @@ def STFT_Mel():
 @config_ingredient.named_config
 def L1_STFT_Mel():
     print("L1 + STFT + Mel")
-    experiment_id = 306
+    experiment_id = 6
     model_config = {
         'stft_loss' : 1,
         'perceptual_loss' : 1,
@@ -107,7 +107,7 @@ def L1_STFT_Mel():
 @config_ingredient.named_config
 def NoiseInputVector_L1():
     print("Noise Input Vector - L1")
-    experiment_id = 307
+    experiment_id = 7
     model_config = {
         "noise_input_vector" : True,
     }
@@ -115,7 +115,7 @@ def NoiseInputVector_L1():
 @config_ingredient.named_config
 def NoiseInputVector_L1_STFT():
     print("Noise Input Vector - L1 + STFT")
-    experiment_id = 308
+    experiment_id = 8
     model_config = {
         'stft_loss' : 1,
         "noise_input_vector" : True,
@@ -124,7 +124,7 @@ def NoiseInputVector_L1_STFT():
 @config_ingredient.named_config
 def NoiseInputVector_L1_Mel():
     print("Noise Input Vector - L1 + Mel")
-    experiment_id = 309
+    experiment_id = 9
     model_config = {
         'perceptual_loss' : 1,
         "noise_input_vector" : True,
@@ -133,7 +133,7 @@ def NoiseInputVector_L1_Mel():
 @config_ingredient.named_config
 def NoiseInputVector_STFT():
     print("Noise Input Vector - STFT")
-    experiment_id = 310
+    experiment_id = 10
     model_config = {
         'raw_audio_loss' : False,
         'stft_loss' : 1,
@@ -143,7 +143,7 @@ def NoiseInputVector_STFT():
 @config_ingredient.named_config
 def NoiseInputVector_Mel():
     print("Noise Input Vector - Mel")
-    experiment_id = 311
+    experiment_id = 11
     model_config = {
         'raw_audio_loss' : False,
         'perceptual_loss' : 1,
@@ -153,7 +153,7 @@ def NoiseInputVector_Mel():
 @config_ingredient.named_config
 def NoiseInputVector_STFT_Mel():
     print("Noise Input Vector - STFT + Mel")
-    experiment_id = 312
+    experiment_id = 12
     model_config = {
         'raw_audio_loss' : False,
         'stft_loss' : 1,
@@ -164,7 +164,7 @@ def NoiseInputVector_STFT_Mel():
 @config_ingredient.named_config
 def L1_NoiseInputVector():
     print("Noise Input Vector - L1 + STFT + Mel")
-    experiment_id = 313
+    experiment_id = 13
     model_config = {
         'stft_loss' : 1,
         'perceptual_loss' : 1,
@@ -174,7 +174,7 @@ def L1_NoiseInputVector():
 @config_ingredient.named_config
 def AttentionMechanism_L1():
     print("Attention Mechanism - L1")
-    experiment_id = 314
+    experiment_id = 14
     model_config = {
         "attention_mechanism" : True,
     }
@@ -182,7 +182,7 @@ def AttentionMechanism_L1():
 @config_ingredient.named_config
 def AttentionMechanism_L1_STFT_Mel():
     print("Attention Mechanism - L1 + STFT + Mel")
-    experiment_id = 315
+    experiment_id = 15
     model_config = {
         'stft_loss' : 1,
         'perceptual_loss' : 1,
@@ -192,7 +192,7 @@ def AttentionMechanism_L1_STFT_Mel():
 @config_ingredient.named_config
 def SEGANVariations_L1():
     print("SEGAN+ Variations - L1")
-    experiment_id = 316
+    experiment_id = 16
     model_config = {
         'scalar_skip_connection' : True,
         "skipping_post_activation" : False,
@@ -202,7 +202,7 @@ def SEGANVariations_L1():
 @config_ingredient.named_config
 def SEGANVariations_L1_STFT_Mel():
     print("SEGAN+ Variations - L1 + STFT + Mel")
-    experiment_id = 317
+    experiment_id = 17
     model_config = {
         'stft_loss' : 1,
         'perceptual_loss' : 1,
