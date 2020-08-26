@@ -6,31 +6,16 @@ Adaptation of the [Wave-U-Net](https://github.com/f90/Wave-U-Net) [[1]](#1) arch
 ## Listening Examples
 
 ## Experiments 
-The experiments contemplate variations inspired by some relevant deep learning networks for speech enhancement (Spectral Losses [[3]](#3)[[4]](#4), Noise Input Vector, Attention Mechanism [[5]](#5), SEGAN+ Variations [[6]](#6)). 
-| ID | Variant             | Loss            | Command                                                        |
-|----|---------------------|-----------------|----------------------------------------------------------------|
-| 00 | Baseline Wave-U-Net | L1 + STFT + Mel | ``python Training.py with cfg.L1``                             |
-| 01 | Attention Mechanism>| L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
-| 02 | ^                  .| L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
-| 03 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
-| 04 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
-| 05 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
-| 06 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
-| 07 | Attention Mechanism | L1 + STFT + Mel | ``python Training.py with cfg.AttentionMechanism_L1_STFT_Mel`` |
+The experiments in this repository contemplate variations inspired by some relevant deep learning networks for speech enhancement (Spectral Losses [[3]](#3)[[4]](#4), Noise Input Vector, Attention Mechanism [[5]](#5), SEGAN+ Variations [[6]](#6)).
 
-|a  |b  |
-|---|---|
-|>|1|
-|2||
-
-
-## Installation
-### Requirements
+## Requirements
 The project is based on Python 3.6.8 and requires [libsndfile](http://mega-nerd.com/libsndfile/) and CUDA 9 to be installed. The required Python packages can be installed using ``pip install -r requirements.txt``
 
-### Datasets
-To reproduce the experiments, it is necessary to download the [VCTK](http://datashare.is.ed.ac.uk/handle/10283/1942) [[7]](#7) and [DAPS](https://archive.org/details/daps_dataset) [[8]](#8) datasets .
+## Datasets
+To reproduce the experiments, it is necessary to download the [VCTK](http://datashare.is.ed.ac.uk/handle/10283/1942) [[7]](#7) and [DAPS](https://archive.org/details/daps_dataset) [[8]](#8) datasets.
 
+### Training and Testing
+To train the models, use the ``python Training.py`` command with the desired configuration (e.g. ``python Training.py with cfg.NoiseInputVector_STFT_Mel``).Pre-trained weights of the explored model variants can be downloaded [here](www.embolia.com). Unzip them into the checkpoints subfolder of this repository.
 
 ## References 
 <a name="1"></a> [1] Stoller, D., Ewert, S. & Dixon, S. Wave-U-Net: [A Multi-Scale Neural Network for End-to-End Audio Source Separation](https://arxiv.org/abs/1806.03185) (2018).
