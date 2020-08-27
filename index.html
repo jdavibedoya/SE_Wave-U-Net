@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <h1> Speech Enhancement using the Wave-U-Net with Spectral Losses </h1>
+  <head>
+    <meta charset="utf-8">
+    <title>SE_Wave-U-Net</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+  </head>
   
   <body>
-
-  <audio controls>
+    <h1> Speech Enhancement using the Wave-U-Net with Spectral Losses </h1>
+    <hr>
+    
+    <h2> VCTK </h2>
+    <hr>
+    
+    <div class="row">
+      <div class="col-md-3" align="center">Noisy</div>
+      <div class="col-md-3" align="center">Baseline</div>
+      <div class="col-md-3" align="center">Spectral Losses</div>
+      <div class="col-md-3" align="center">Noise Input Vector</div>
+    </div>
+    
+    <audio controls>
     <source src="p226_005_8k.wav" type="audio/wav">
     Your browser does not support the audio element.
-  </audio>
+    </audio>
 
   </body>
 </html>
