@@ -3,7 +3,8 @@ Adaptation of the [Wave-U-Net](https://github.com/f90/Wave-U-Net) [[1]](#1) arch
 
 <img src="./Wave-U-Net - Denoising + BWE.png" width="500">
 
-**Listening samples are available [here](https://jdavibedoya.github.io/SE_Wave-U-Net/).**
+## Listening Examples
+A number of listening samples are available [here](https://jdavibedoya.github.io/SE_Wave-U-Net/). Estimates of all experiments on the test sets are available [here](www.embolia).
 
 ## Requirements
 The project is based on Python 3.6.8 and requires [libsndfile](http://mega-nerd.com/libsndfile/) and CUDA 9 to be installed. The required Python packages can be installed using ``pip install -r requirements.txt``
