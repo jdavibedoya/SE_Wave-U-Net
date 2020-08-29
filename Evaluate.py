@@ -114,11 +114,12 @@ def predict_track(model_config, sess, track_audio, orig_sr, enhancer_input_shape
     return prediction
 
 
-def produce_estimates(model_config, dataset, experiment_id, load_model):
+def evaluate_dataset(model_config, dataset, experiment_id, load_model):
     '''
     For a given input file, saves the prediction made by a given model.
     :param model_config: Model configuration
-    :para experiment_id: ID of the experiment
+    :param dataset: Dataset to evaluate
+    :param experiment_id: ID of the experiment
     :param load_model: Model checkpoint path
     '''
     
@@ -127,7 +128,7 @@ def produce_estimates(model_config, dataset, experiment_id, load_model):
     csv_file_name = model_config["estimates_path"] + os.path.sep + experiment_id + "_" + dataset + ".csv" 
     with open(csv_file_name, 'w') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',')
-        csv_writer.writerow(["target_file", "input_file", "pesq", "lsd", "ssnr", "audio_len"])
+        csv_writer.writerow(["target_file", "output_file", "pesq", "lsd", "ssnr", "audio_len"])
         
         # Get test set
         if dataset == "VCTK":
@@ -137,7 +138,7 @@ def produce_estimates(model_config, dataset, experiment_id, load_model):
 
         for sample in test:
             file = sample[model_config["input"]].split("/")[-1]
-            print("Producing estimate for input file " + file)
+            print("Producing estimate for file " + file)
             track_audio, sr = Utils.load(sample[model_config["input"]], sr = model_config['expected_sr'], mono=True)
             prediction_audio = predict(track_audio, sr, model_config, load_model) # Get estimate
             prediction_file_name = os.path.join(output_path, file) + "_prediction.wav"
@@ -159,6 +160,18 @@ def produce_estimates(model_config, dataset, experiment_id, load_model):
     print('Results -> PESQ:{:.3f} LSD:{:.3f} SSNR:{:.3f}'.format(pesq, lsd, ssnr))
 
 
+def produce_estimate(model_config, model_path, input_path, output_path):
+    print("Producing estimate for file " + input_path)
+    track_audio, sr = Utils.load(input_path, sr = model_config['expected_sr'], mono=True)
+    prediction_audio = predict(track_audio, sr, model_config, load_model) # Get estimate
+    prediction_file_name = os.path.join(output_path, file) + "_prediction.wav"
+
+    # Save estimate as audio file
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+    librosa.output.write_wav(prediction_file_name, prediction_audio, sr)
+
+
 def noisy(model_config, dataset):
     csv_file_name = model_config["estimates_path"] + os.path.sep + "noisy" + "_" + dataset +  ".csv"
     with open(csv_file_name, 'w') as csv_file:
@@ -176,8 +189,8 @@ def noisy(model_config, dataset):
             input_file_name = sample[model_config["input"]]
             print("Test file " + input_file_name)
             target_file_name = sample[model_config["target"]]
-            pesq, ssnr, snr, lsd, audio_len = Metrics.Eval(target_file_name, input_file_name, model_config['expected_sr'])
-            csv_writer.writerow([target_file_name, prediction_file_name, pesq, lsd, ssnr, audio_len])
+            pesq, lsd, ssnr, audio_len = Metrics.Eval(target_file_name, input_file_name, model_config['expected_sr'])
+            csv_writer.writerow([target_file_name, input_file_name, pesq, lsd, ssnr, audio_len])
             print('PESQ:{:.3f} LSD:{:.3f} SSNR:{:.3f}'.format(pesq, lsd, ssnr))
             
     results_df = pd.read_csv(csv_file_name, usecols=["ssnr", "lsd", "pesq", "audio_len"])
