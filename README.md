@@ -4,13 +4,13 @@ Adaptation of the [Wave-U-Net](https://github.com/f90/Wave-U-Net) [[1]](#1) arch
 <img src="./Wave-U-Net - Denoising + BWE.png" width="500">
 
 ## Listening Examples
-A number of listening samples are available [here](https://jdavibedoya.github.io/SE_Wave-U-Net/). Estimates of all experiments on the test sets are available [here](www.embolia).
+A number of listening samples are available [here](https://jdavibedoya.github.io/SE_Wave-U-Net/). Estimates of all experiments on the test sets are available [here](https://drive.google.com/drive/folders/1MDjLUiYXRyHlWZUkw-YUI_d4jx4sSwG0?usp=sharing).
 
 ## Requirements
 The project is based on Python 3.6.8 and requires [libsndfile](http://mega-nerd.com/libsndfile/) and CUDA 9 to be installed. The required Python packages can be installed using ``pip install -r requirements.txt``
 
 ## Experiments 
-The experiments contemplate variations inspired by some relevant deep learning networks for speech enhancement (Spectral Losses [[3]](#3)[[4]](#4), Noise Input Vector, Attention Mechanism [[5]](#5), SEGAN+ Variations [[6]](#6)). For a detailed explanation of the architectural variations explored, please review [this thesis](www.embolia.com).
+The experiments contemplate variations inspired by some relevant deep learning networks for speech enhancement (Spectral Losses [[3]](#3)[[4]](#4), Noise Input Vector, Attention Mechanism [[5]](#5), SEGAN+ Variations [[6]](#6)). For a detailed explanation of the architectural variations explored, please review this thesis.
 
 ## Datasets
 To reproduce the experiments it is necessary to download the [VCTK](http://datashare.is.ed.ac.uk/handle/10283/1942) [[7]](#7) and [DAPS](https://archive.org/details/daps_dataset) [[8]](#8) datasets, and move them to the `data/audio/raw` subfolder of this repository.
@@ -18,7 +18,7 @@ To reproduce the experiments it is necessary to download the [VCTK](http://datas
 ## Training and Testing
 To train the models, use the ``python Training.py`` command with the desired configuration (e.g. ``python Training.py with cfg.L1_STFT_Mel``). 
 
-Pre-trained weights of the explored model variants can be downloaded [here](www.embolia.com). Unzip them into the `checkpoints` subfolder of this repository. Below is an example of how to make a prediction on an audio file: 
+Pre-trained weights of the explored model variants can be downloaded [here](https://drive.google.com/drive/folders/1x9cqSX7gsjd7IMxBexk-Pb0nCe7LaRy0?usp=sharing). Unzip them into the `checkpoints` subfolder of this repository. Below is an example of how to make a prediction on an audio file: 
 
 ``python Predict.py with cfg.L1_STFT_Mel model_path="checkpoints/06/06-100000" input_path="/data/audio/raw/noisy_speech.wav" output_path="/estimates"``
 
