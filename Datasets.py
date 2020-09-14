@@ -69,7 +69,7 @@ def write_records(sample_list, model_config, input_shape, output_shape, records_
             print("ERROR occurred during loading file " + str(sample) + ". Skipping")
             continue
         
-        if np.abs( np.diff(audio_lengths) ) < 10: # tolerate up to 10 samples difference
+        if np.abs( np.diff(audio_lengths) ) <= 5: # tolerate up to 5 samples difference
             for key in keys:
               audio_tracks[key] = audio_tracks[key][:min(audio_lengths)]
               audio_tracks[key] = audio_tracks[key][:min(audio_lengths)] 
