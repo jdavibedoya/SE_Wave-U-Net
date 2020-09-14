@@ -162,7 +162,7 @@ def NoiseInputVector_STFT_Mel():
     }
 
 @config_ingredient.named_config
-def L1_NoiseInputVector():
+def NoiseInputVector_L1_STFT_Mel():
     print("Noise Input Vector - L1 + STFT + Mel")
     experiment_id = 13
     model_config = {
