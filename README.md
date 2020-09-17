@@ -20,7 +20,7 @@ To train the models, use the ``python Training.py`` command with the desired con
 
 Pre-trained weights of the explored model variants can be downloaded [here](https://drive.google.com/drive/folders/1x9cqSX7gsjd7IMxBexk-Pb0nCe7LaRy0?usp=sharing). Unzip them into the `checkpoints` subfolder of this repository. Below is an example of how to make a prediction on an audio file: 
 
-``python Predict.py with cfg.L1_STFT_Mel model_path="checkpoints/6/6" input_path="/data/audio/raw/noisy_speech.wav" output_path="/estimates"``
+``python Predict.py with cfg.L1_STFT_Mel model_path="checkpoints/6/6" input_path="data/audio/raw/noisy_speech.wav" output_path="estimates"``
 
 ## References 
 <a name="1"></a> [1] Stoller, D., Ewert, S. & Dixon, S. Wave-U-Net: [A Multi-Scale Neural Network for End-to-End Audio Source Separation](https://arxiv.org/abs/1806.03185) (2018).
