@@ -163,8 +163,8 @@ def evaluate_dataset(model_config, dataset, experiment_id, load_model):
 def produce_estimate(model_config, model_path, input_path, output_path):
     print("Producing estimate for file " + input_path)
     track_audio, sr = Utils.load(input_path, sr = model_config['expected_sr'], mono=True)
-    prediction_audio = predict(track_audio, sr, model_config, load_model) # Get estimate
-    prediction_file_name = os.path.join(output_path, file) + "_prediction.wav"
+    prediction_audio = predict(track_audio, sr, model_config, model_path) # Get estimate
+    prediction_file_name = os.path.join(output_path, input_path.split("/")[-1]) + "_prediction.wav"
 
     # Save estimate as audio file
     if not os.path.exists(output_path):
