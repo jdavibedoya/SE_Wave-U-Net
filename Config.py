@@ -45,11 +45,12 @@ def cfg():
                     "z_latent" : False,
                     }
 
+    experiment_id = 0
+
 
 @config_ingredient.named_config
 def L1():
     print("Baseline")
-    experiment_id = 0
 
 @config_ingredient.named_config
 def L1_STFT():
@@ -188,7 +189,7 @@ def AttentionMechanism_L1_STFT_Mel():
         'perceptual_loss' : 1,
         "attention_mechanism" : True,
     }
-
+  
 @config_ingredient.named_config
 def SEGANVariations_L1():
     print("SEGAN+ Variations - L1")
