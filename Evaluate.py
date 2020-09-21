@@ -9,14 +9,15 @@ import numpy as np
 import os
 import pandas as pd
 import tensorflow as tf
+from essentia.standard import MonoLoader, MonoWriter, Resample
 
 
-def predict(track_audio, orig_sr, model_config, load_model):
+def predict(track_audio, model_config, load_model):
     '''
     Model has to be saved beforehand into a pickle file containing model configuration dictionary and checkpoint path!
     :param track: Audio (n_samples, n_channels)
-    :param sr: Sampling rate
-    :param results_dir: Directory where values of the metrics should be saved
+    :param model_config: Model config
+    :param load_model: Model checkpoint path
     :return: Prediction
     '''
 
@@ -49,7 +50,7 @@ def predict(track_audio, orig_sr, model_config, load_model):
     restorer.restore(sess, load_model)
     print('Pre-trained model restored for track prediction')
 
-    enhancer_pred = predict_track(model_config, sess, track_audio, orig_sr, enhancer_input_shape, enhancer_output_shape, enhancer_output, input_ph)
+    enhancer_pred = predict_track(model_config, sess, track_audio, enhancer_input_shape, enhancer_output_shape, enhancer_output, input_ph)
 
     # Close session, clear computational graph
     sess.close()
@@ -58,14 +59,13 @@ def predict(track_audio, orig_sr, model_config, load_model):
     return enhancer_pred
 
 
-def predict_track(model_config, sess, track_audio, orig_sr, enhancer_input_shape, enhancer_output_shape, enhancer_output, input_ph):
+def predict_track(model_config, sess, track_audio, enhancer_input_shape, enhancer_output_shape, enhancer_output, input_ph):
     '''
     Outputs estimate for a given input audio signal [n_frames, n_channels] and a given Tensorflow session and placeholders belonging to the prediction network.
     It iterates through the track, collecting segment-wise predictions to form the output.
     :param model_config: Model configuration dictionary
     :param sess: Tensorflow session used to run the network inference
     :param track_audio: [n_frames, n_channels] audio signal (numpy array). Can have different sampling rate or channels than the model supports, will be resampled correspondingly.
-    :param orig_sr: Sampling rate of track_audio
     :param enhancer_input_shape: Input shape of enhancer ([batch_size, num_samples, num_channels])
     :param enancer_output_shape: Output shape of enhancer ([batch_size, num_samples, num_channels])
     :param enhancer_ouput: Tensorflow tensor that represents the output of the network
@@ -162,14 +162,38 @@ def evaluate_dataset(model_config, dataset, experiment_id, load_model):
 
 def produce_estimate(model_config, model_path, input_path, output_path):
     print("Producing estimate for file " + input_path)
-    track_audio, sr = Utils.load(input_path, sr = model_config['expected_sr'], mono=True)
-    prediction_audio = predict(track_audio, sr, model_config, model_path) # Get estimate
+
+    # Read audio
+    audio = MonoLoader(filename = input_path, sampleRate = model_config['expected_sr'])()
+    audio_8k = MonoLoader(filename = input_path, sampleRate = 8000)()
+
+    # Resample audio
+    audio_nb = Resample(inputSampleRate = 8000, outputSampleRate = 44100)(audio_8k)
+
+    # Lengths
+    len_audio = len(audio)
+    len_audio_nb = len(audio_nb)
+
+    print(len_audio)
+    print(len_audio_nb)
+
+    # Trimming/appending
+    len_diff = len_audio_nb - len_audio
+    if len_diff > 0:
+      audio_nb = audio_nb[:len_audio]
+    elif len_diff < 0:
+      audio_nb = np.pad(audio_nb, (0,abs(len_diff)), 'constant', constant_values=(0,0))
+    
+    audio_nb = np.expand_dims(audio_nb, axis=0).T
+
+    # Prediction
+    prediction_audio = predict(audio_nb, model_config, model_path) # Get estimate
     prediction_file_name = os.path.join(output_path, input_path.split("/")[-1]) + "_prediction.wav"
 
     # Save estimate as audio file
     if not os.path.exists(output_path):
         os.makedirs(output_path)
-    librosa.output.write_wav(prediction_file_name, prediction_audio, sr)
+    librosa.output.write_wav(prediction_file_name, prediction_audio, model_config['expected_sr'])
 
 
 def noisy(model_config, dataset):
