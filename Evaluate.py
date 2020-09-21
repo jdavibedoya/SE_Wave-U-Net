@@ -174,19 +174,15 @@ def produce_estimate(model_config, model_path, input_path, output_path):
     len_audio = len(audio)
     len_audio_nb = len(audio_nb)
 
-    print(len_audio)
-    print(len_audio_nb)
-
     # Trimming/appending
     len_diff = len_audio_nb - len_audio
     if len_diff > 0:
       audio_nb = audio_nb[:len_audio]
     elif len_diff < 0:
       audio_nb = np.pad(audio_nb, (0,abs(len_diff)), 'constant', constant_values=(0,0))
-    
-    audio_nb = np.expand_dims(audio_nb, axis=0).T
 
     # Prediction
+    audio_nb = np.expand_dims(audio_nb, axis=0).T #(n_frames, n_channels)
     prediction_audio = predict(audio_nb, model_config, model_path) # Get estimate
     prediction_file_name = os.path.join(output_path, input_path.split("/")[-1]) + "_prediction.wav"
 
